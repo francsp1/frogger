@@ -16,7 +16,7 @@ private const val SCALE:Double = (3.85)
 private const val ORIGINAL_CELL_SIZE = (16)
 
 /**
- * The maze's scaled cell size
+ * Dimension in pixels of the maze cell's sprites with a scale factor (Actual size shown on the screen)
  */
 const val CELL_SIZE = (ORIGINAL_CELL_SIZE * SCALE).toInt()
 
@@ -40,12 +40,16 @@ const val SCREEN_WIDTH = ((ORIGINAL_SCREEN_WIDTH * SCALE).toInt())
  */
 const val SCREEN_HEIGTH = ((ORIGINAL_SCREEN_HEIGHT * SCALE).toInt())
 
+
+/**
+ * Draws the maze on the screen area represented by [Canvas]
+ */
 fun Canvas.drawMaze() {
     this.drawGrid()
 }
 
 /**
- * Draws a grid on the screen area represented by
+ * Draws a grid on the screen area represented by [Canvas]
  */
 private fun Canvas.drawGrid() {
     for (index in 0 until MAZE_HEIGHT) {
