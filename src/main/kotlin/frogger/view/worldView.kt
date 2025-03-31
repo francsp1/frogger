@@ -7,5 +7,6 @@ fun Canvas.drawGame(Frogger: Frogger) {
     erase()
     drawWater()
     drawMaze()
+    drawGrid()
     //drawHero(hero)
 }
