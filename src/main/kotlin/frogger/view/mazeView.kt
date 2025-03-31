@@ -8,7 +8,7 @@ import pt.isel.canvas.WHITE
 /**
  * The maze's scale factor
  */
-private const val SCALE = (3.5)
+private const val SCALE:Double = (3.85)
 
 /**
  * Dimension in pixels of the maze cell's sprites (without scaling)
