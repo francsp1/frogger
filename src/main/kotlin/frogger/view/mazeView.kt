@@ -21,24 +21,14 @@ private const val ORIGINAL_CELL_SIZE = (16)
 const val CELL_SIZE = (ORIGINAL_CELL_SIZE * SCALE).toInt()
 
 /**
- * The maze's original screen width (without scaling)
- */
-private const val ORIGINAL_SCREEN_WIDTH = (ORIGINAL_CELL_SIZE * MAZE_WIDTH)
-
-/**
- * The maze's original screen height (without scaling)
- */
-private const val ORIGINAL_SCREEN_HEIGHT = (ORIGINAL_CELL_SIZE * MAZE_HEIGHT)
-
-/**
  * The maze's scaled scren width
  */
-const val SCREEN_WIDTH = ((ORIGINAL_SCREEN_WIDTH * SCALE).toInt())
+const val SCREEN_WIDTH = (CELL_SIZE * MAZE_WIDTH)
 
 /**
  * The maze's scaled screen height
  */
-const val SCREEN_HEIGTH = ((ORIGINAL_SCREEN_HEIGHT * SCALE).toInt())
+const val SCREEN_HEIGHT = (CELL_SIZE * MAZE_HEIGHT)
 
 
 /**
@@ -46,6 +36,13 @@ const val SCREEN_HEIGTH = ((ORIGINAL_SCREEN_HEIGHT * SCALE).toInt())
  */
 fun Canvas.drawMaze() {
     this.drawGrid()
+}
+
+/**
+ * Draws the water section of the screen area represented by [Canvas]
+ */
+fun Canvas.drawWater() {
+    this.drawRect(0,0, SCREEN_WIDTH, SCREEN_HEIGHT /2, color = 0x000047)
 }
 
 /**
@@ -67,7 +64,7 @@ private fun Canvas.drawGrid() {
             xFrom = CELL_SIZE * index,
             yFrom = 0,
             xTo = CELL_SIZE * index,
-            yTo = SCREEN_HEIGTH,
+            yTo = SCREEN_HEIGHT,
             color = WHITE,
             thickness = 1
         )

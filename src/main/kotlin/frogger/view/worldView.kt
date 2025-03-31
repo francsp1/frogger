@@ -5,6 +5,7 @@ import pt.isel.canvas.Canvas
 
 fun Canvas.drawGame(Frogger: Frogger) {
     erase()
+    drawWater()
     drawMaze()
     //drawHero(hero)
 }
