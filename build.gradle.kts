@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation("io.github.palex65:CanvasLib-jvm:1.0.2")
     testImplementation(kotlin("test"))
 }
 
@@ -19,3 +20,4 @@ tasks.test {
 kotlin {
     jvmToolchain(23)
 }
+
