@@ -47,29 +47,49 @@ fun Canvas.drawWater() {
 }
 
 /**
+ * Draws the homes (Frog's top safe spots) on the screen area represented by [Canvas]
+ */
+fun Canvas.drawHomes() {
+
+    for (i in 0 until MAZE_WIDTH step 3) {
+        drawImage(
+            "frogger|1,188,${ORIGINAL_CELL_SIZE * 2},${ORIGINAL_CELL_SIZE + ORIGINAL_CELL_SIZE / 2}",
+            xLeft = CELL_SIZE * i,
+            yTop = CELL_SIZE + CELL_SIZE / 2,
+            width = CELL_SIZE * 2,
+            height = CELL_SIZE + CELL_SIZE / 2
+        )
+    }
+
+
+    for (i in 2 until MAZE_HEIGHT step 3) {
+        drawImage(
+            "frogger|35,188,${ORIGINAL_CELL_SIZE / 2},${ORIGINAL_CELL_SIZE + ORIGINAL_CELL_SIZE / 2}",
+            xLeft = CELL_SIZE * i,
+            yTop = (CELL_SIZE + CELL_SIZE / 2),
+            width = CELL_SIZE / 2,
+            height = CELL_SIZE + CELL_SIZE / 2
+        )
+        drawImage(
+            "frogger|35,188,${ORIGINAL_CELL_SIZE / 2},${ORIGINAL_CELL_SIZE + ORIGINAL_CELL_SIZE / 2}",
+            xLeft = CELL_SIZE * i + CELL_SIZE / 2,
+            yTop = (CELL_SIZE + CELL_SIZE / 2),
+            width = CELL_SIZE / 2,
+            height = CELL_SIZE + CELL_SIZE / 2
+        )
+    }
+}
+
+/**
  * Draws the sidewalks on the screen area represented by [Canvas]
  */
 fun Canvas.drawSidewalks() {
     for (column in 0 until MAZE_WIDTH) {
         // Upper Sidewalk
-        drawLayoutSprite(line = 8, column = column,135, 196)
+        drawLayoutSprite(line = 8, column = column,spriteX = 135, spriteY = 196)
         // Lower Sidewalk
         drawLayoutSprite(line = 14, column = column,135, 196)
     }
-}
-
-/**
- * Draws the homes (Frog's safe spots) on the screen area represented by [Canvas]
- */
-
-fun Canvas.drawHomes() {
-    drawImage(
-        "frogger|35,188,8,24",
-        xLeft = CELL_SIZE,
-        yTop = CELL_SIZE,
-        width = CELL_SIZE,
-        height = CELL_SIZE
-    )
 }
 
 /**
