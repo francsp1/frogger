@@ -1,5 +1,6 @@
 package frogger.view
 
+import frogger.domain.Frogger
 import frogger.domain.MAZE_HEIGHT
 import frogger.domain.MAZE_WIDTH
 import pt.isel.canvas.Canvas
@@ -8,15 +9,15 @@ import pt.isel.canvas.WHITE
 /**
  * The maze's scale factor
  */
-private const val SCALE:Double = (3.85)
+const val SCALE:Double = (3.85)
 
 /**
  * Dimension in pixels of the maze cell's sprites (without scaling)
  */
-private const val ORIGINAL_CELL_SIZE = (16)
+const val ORIGINAL_CELL_SIZE = (16)
 
 /**
- * Dimension in pixels of the maze cell's sprites with a scale factor (Actual size shown on the screen)
+ * Dimension in pixels of the maze cell's sprites with a scale factor applied (Actual size shown on the screen)
  */
 const val CELL_SIZE = (ORIGINAL_CELL_SIZE * SCALE).toInt()
 
@@ -90,6 +91,14 @@ fun Canvas.drawSidewalks() {
         // Lower Sidewalk
         drawLayoutSprite(line = 14, column = column,135, 196)
     }
+}
+
+fun Canvas.drawVehicles(frogger: Frogger) {
+    drawVehicle(frogger.truck)
+    drawVehicle(frogger.car1)
+    drawVehicle(frogger.car2)
+    drawVehicle(frogger.car3)
+    drawVehicle(frogger.car4)
 }
 
 /**
