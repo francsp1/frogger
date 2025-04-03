@@ -94,11 +94,11 @@ fun Canvas.drawSidewalks() {
 }
 
 fun Canvas.drawVehicles(frogger: Frogger) {
-    drawVehicle(frogger.truck)
-    drawVehicle(frogger.car1)
-    drawVehicle(frogger.car2)
-    drawVehicle(frogger.car3)
-    drawVehicle(frogger.car4)
+    drawVehicle(frogger.truck, frogger.truckX)
+    drawVehicle(frogger.car1, frogger.car1X)
+    drawVehicle(frogger.car2, frogger.car2X)
+    drawVehicle(frogger.car3, frogger.car3X)
+    drawVehicle(frogger.car4, frogger.car4X)
 }
 
 /**

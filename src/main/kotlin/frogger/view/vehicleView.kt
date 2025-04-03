@@ -1,8 +1,6 @@
 package frogger.view
 
-import frogger.domain.MAZE_WIDTH
-import frogger.domain.Vehicle
-import frogger.domain.VehicleType
+import frogger.domain.*
 import pt.isel.canvas.Canvas
 
 /**
@@ -26,13 +24,22 @@ const val CAR3_START_X = 0
 const val CAR4_START_X = MAZE_WIDTH - 1
 
 
-fun Canvas.drawVehicle(vehicle: Vehicle) {
-    val position = coordinateToPoint(vehicle.at)
+fun Canvas.drawVehicle(vehicle: Vehicle, vehicleColumn: Int) {
+    val position = Point(
+        x = vehicleColumn * VEHICLE_SIZE,
+        y = when (vehicle.type) {
+            VehicleType.TRUCK -> TRUCK_ROW * VEHICLE_SIZE
+            VehicleType.CAR1 -> CAR1_ROW * VEHICLE_SIZE
+            VehicleType.CAR2 -> CAR2_ROW * VEHICLE_SIZE
+            VehicleType.CAR3 -> CAR3_ROW * VEHICLE_SIZE
+            VehicleType.CAR4 -> CAR4_ROW * VEHICLE_SIZE
+        }
+    )
     drawVehicleSprite(vehicle.type, position)
 }
 
 fun Canvas.drawVehicleSprite(type: VehicleType, position: Point) {
-    val column = when (type) {
+    val spriteColumn = when (type) {
         VehicleType.CAR1 -> 2
         VehicleType.CAR2 -> 0
         VehicleType.CAR3 -> 3
@@ -49,7 +56,7 @@ fun Canvas.drawVehicleSprite(type: VehicleType, position: Point) {
         else -> VEHICLE_SIZE
     }
 
-    val spriteX = 1 + (ORIGINAL_VEHICLE_SIZE * column) + (2 * column)
+    val spriteX = 1 + (ORIGINAL_VEHICLE_SIZE * spriteColumn) + (2 * spriteColumn)
     val spriteY = 116
     drawImage(
         "frogger|${spriteX},${spriteY},${spriteXSize},${ORIGINAL_VEHICLE_SIZE}",
