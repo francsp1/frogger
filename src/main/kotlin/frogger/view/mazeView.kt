@@ -19,7 +19,7 @@ const val ORIGINAL_CELL_SIZE = (16)
 /**
  * Dimension in pixels of the maze cell's sprites with a scale factor applied (Actual size shown on the screen)
  */
-const val CELL_SIZE = (ORIGINAL_CELL_SIZE * SCALE).toInt()
+const val CELL_SIZE = ((ORIGINAL_CELL_SIZE * SCALE).toInt())
 
 /**
  * The maze's scaled scren width
@@ -31,6 +31,12 @@ const val SCREEN_WIDTH = (CELL_SIZE * MAZE_WIDTH)
  */
 const val SCREEN_HEIGHT = (CELL_SIZE * MAZE_HEIGHT)
 
+/**
+ * Draws the water section of the screen area represented by [Canvas]
+ */
+fun Canvas.drawWater() {
+    drawRect(0,0, SCREEN_WIDTH, (SCREEN_HEIGHT/2) + (CELL_SIZE/2), color = 0x000047)
+}
 
 /**
  * Draws the maze on the screen area represented by [Canvas]
@@ -38,13 +44,6 @@ const val SCREEN_HEIGHT = (CELL_SIZE * MAZE_HEIGHT)
 fun Canvas.drawMaze() {
     drawHomes()
     drawSidewalks()
-}
-
-/**
- * Draws the water section of the screen area represented by [Canvas]
- */
-fun Canvas.drawWater() {
-    drawRect(0,0, SCREEN_WIDTH, (SCREEN_HEIGHT/2) + (CELL_SIZE/2), color = 0x000047)
 }
 
 /**
