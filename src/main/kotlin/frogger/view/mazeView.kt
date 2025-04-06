@@ -31,19 +31,13 @@ const val SCREEN_WIDTH = (CELL_SIZE * MAZE_WIDTH)
  */
 const val SCREEN_HEIGHT = (CELL_SIZE * MAZE_HEIGHT)
 
+const val WATER_COLOR = 0x000047
+
 /**
  * Draws the water section of the screen area represented by [Canvas]
  */
 fun Canvas.drawWater() {
-    drawRect(0,0, SCREEN_WIDTH, (SCREEN_HEIGHT/2) + (CELL_SIZE/2), color = 0x000047)
-}
-
-/**
- * Draws the maze on the screen area represented by [Canvas]
- */
-fun Canvas.drawMaze() {
-    drawHomes()
-    drawSidewalks()
+    drawRect(0,0, SCREEN_WIDTH, (SCREEN_HEIGHT/2) + (CELL_SIZE/2), color = WATER_COLOR)
 }
 
 /**
@@ -90,6 +84,14 @@ fun Canvas.drawSidewalks() {
         // Lower Sidewalk
         drawLayoutSprite(line = 14, column = column,135, 196)
     }
+}
+
+/**
+ * Draws the maze on the screen area represented by [Canvas]
+ */
+fun Canvas.drawMaze() {
+    drawHomes()
+    drawSidewalks()
 }
 
 fun Canvas.drawVehicles(frogger: Frogger) {
