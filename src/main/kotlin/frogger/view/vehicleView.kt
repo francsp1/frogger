@@ -66,3 +66,4 @@ fun Canvas.drawVehicleSprite(type: VehicleType, position: Point) {
         height = VEHICLE_SIZE
     )
 }
+
